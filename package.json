@@ -5,9 +5,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "wc": "vue-cli-service build --target wc --name construct-devtool ./src/components/DevTool.vue"
   },
   "dependencies": {
+    "electron": "^4.0.4",
     "vue": "^2.5.22"
   },
   "devDependencies": {

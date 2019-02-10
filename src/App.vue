@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <DevTool/>
   </div>
 </template>
 
@@ -11,7 +10,7 @@ import DevTool from './components/DevTool.vue';
 export default {
   name: 'app',
   components: {
-    HelloWorld: DevTool,
+    DevTool,
   },
 };
 </script>
