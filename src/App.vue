@@ -26,11 +26,8 @@
 
 <script>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { config, dom } from '@fortawesome/fontawesome-svg-core';
 import { faSync, faCog, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faDev } from '@fortawesome/free-brands-svg-icons';
-
-config.autoAddCss = false;
 
 export default {
   name: 'DevTool',
@@ -57,26 +54,16 @@ export default {
     },
   },
   methods: {
-    reloadPage() {
-      const event = new Event('reloadPage');
+    dispatch(eventName) {
+      const event = new Event(eventName);
       document.dispatchEvent(event);
+    },
+    reloadPage() {
+      this.dispatch('reloadPage');
     },
     openDevTools() {
-      const event = new Event('openDevTools');
-      document.dispatchEvent(event);
+      this.dispatch('openDevTools');
     },
-  },
-  mounted() {
-    // This will only work on your root Vue component since it's using $parent
-    const { shadowRoot } = this.$parent.$options;
-    const id = 'fa-styles';
-
-    if (!shadowRoot.getElementById(`${id}`)) {
-      const faStyles = document.createElement('style');
-      faStyles.setAttribute('id', id);
-      faStyles.textContent = dom.css();
-      shadowRoot.appendChild(faStyles);
-    }
   },
 };
 </script>
